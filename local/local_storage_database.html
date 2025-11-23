@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LocalStorage Database UI</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1 class="text-center">LocalStorage Database UI</h1>
+            <p class="text-center">Manage key-value pairs in your browser's local storage</p>
+        </header>
+        
+        <main>
+            <!-- Add Section -->
+            <section class="card">
+                <h2>Add New Entry</h2>
+                <div class="form-group">
+                    <label for="key">Key</label>
+                    <input type="text" id="key" placeholder="Enter key name" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="value">Value</label>
+                    <input type="text" id="value" placeholder="Enter value" class="form-control">
+                </div>
+                <button class="btn btn-primary" id="add">Add Entry</button>
+            </section>
+
+            <!-- Search Section -->
+            <section class="card">
+                <h2>Search Entry</h2>
+                <div class="form-group">
+                    <label for="search">Key to Search</label>
+                    <input type="text" id="search" placeholder="Enter key to search" class="form-control">
+                </div>
+                <button class="btn btn-secondary" id="search-btn">Search</button>
+                <div class="search-result">
+                    <h3>Result: <span id="result">-</span></h3>
+                </div>
+            </section>
+
+            <!-- Delete Section -->
+            <section class="card">
+                <h2>Delete Entry</h2>
+                <div class="form-group">
+                    <label for="rem">Key to Delete</label>
+                    <input type="text" id="rem" placeholder="Enter key to delete" class="form-control">
+                </div>
+                <button class="btn btn-danger" id="delete">Delete Entry</button>
+            </section>
+
+            <!-- View All Section -->
+            <section class="card">
+                <h2>All Entries</h2>
+                <button class="btn btn-info" id="view-all">View All Entries</button>
+                <div class="entries-container" id="entries-container">
+                    <!-- Entries will be displayed here -->
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="./local_storage_DB.js"></script>
+</body>
+</html>
