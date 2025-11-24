@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RGB & RGBA Color Generator</title>
+    <link rel="stylesheet" type="text/css" href="./styles.css">
+</head>
+<body id="bod">
+    <div class="container">
+        <h1 class="text-center">RGB & RGBA Color Generator</h1>
+        <hr>
+        <div class="color-controls">
+            <div class="slider-group">
+                <label for="red">RED: <span id="redValue">0</span></label>
+                <input type="range" id="red" name="red" min="0" max="100" value="0">
+            </div>
+            
+            <div class="slider-group">
+                <label for="green">GREEN: <span id="greenValue">0</span></label>
+                <input type="range" id="green" name="green" min="0" max="100" value="0">
+            </div>
+            
+            <div class="slider-group">
+                <label for="blue">BLUE: <span id="blueValue">0</span></label>
+                <input type="range" name="blue" id="blue" min="0" max="100" value="0">
+            </div>
+            
+            <div class="slider-group">
+                <label for="alfa">Alpha: <span id="alfaValue">1.00</span></label>
+                <input type="range" name="alfa" id="alfa" min="0" max="100" value="100">
+            </div>
+        </div>
+        
+        <hr>
+        <div class="alert alert-info">
+            <h4>Tip: For RGB color system just set the alpha value to 1.00!</h4>
+        </div>
+        
+        <div class="color-display">
+            <h2>RGBA Color: <span id="cName">rgba(0, 0, 0, 1)</span></h2>
+            <div class="color-preview" id="colorPreview"></div>
+        </div>
+    </div>
+    
+    <script src="./script.js"></script>
+</body>
+</html>
