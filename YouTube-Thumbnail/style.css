@@ -1,0 +1,210 @@
+/* Base styles */
+* {
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+body {
+    background: linear-gradient(45deg, #1b3c33, #195156);
+    color: white;
+}
+
+.main {
+    margin: auto;
+    text-align: center;
+    max-width: 90vw;
+    width: 100%;
+    padding: 20px;
+}
+
+/* Header styles */
+header h1 {
+    margin-bottom: 0.5rem;
+    font-weight: 300;
+}
+
+hr {
+    border-color: rgba(255, 255, 255, 0.3);
+    margin: 1rem 0;
+}
+
+/* Input section */
+.input-section {
+    margin-bottom: 1.5rem;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.form-control {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.form-control:focus {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.5);
+    color: white;
+    box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.25);
+}
+
+.form-control::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* Button styles */
+.buttons {
+    margin: 1.5rem 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.buttons button {
+    margin: 0.25rem;
+    flex: 1;
+    min-width: 140px;
+    transition: all 0.3s ease;
+}
+
+.buttons button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Image styles */
+.image-container {
+    margin: 2rem 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 200px;
+}
+
+.center-fit {
+    max-height: 50vh;
+    max-width: 90%;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    object-fit: contain;
+}
+
+.center-fit:hover {
+    transform: scale(1.02);
+}
+
+.center-fit:active {
+    transform: scale(0.98);
+}
+
+/* Full page overlay */
+#fullpage {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-color: rgba(0, 0, 0, 0.95);
+    cursor: pointer;
+}
+
+/* Footer styles */
+footer {
+    margin: 2rem 0 1rem 0;
+}
+
+footer a {
+    color: rgba(255, 255, 255, 0.8);
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: white;
+    text-decoration: underline;
+}
+
+/* Loading state */
+.loading {
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+.error-message {
+    color: #ff6b6b;
+    margin: 1rem 0;
+    padding: 0.5rem;
+    background: rgba(255, 107, 107, 0.1);
+    border-radius: 4px;
+    display: none;
+}
+
+/* Responsive design */
+@media only screen and (max-width: 768px) {
+    .main {
+        max-width: 95vw;
+        padding: 15px;
+    }
+    
+    .buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .buttons button {
+        width: 100%;
+        max-width: 250px;
+    }
+    
+    .center-fit {
+        max-width: 95%;
+        max-height: 40vh;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .main {
+        padding: 10px;
+    }
+    
+    header h1 {
+        font-size: 1.5rem;
+    }
+    
+    .buttons button {
+        min-width: unset;
+        width: 100%;
+    }
+    
+    .center-fit {
+        max-height: 35vh;
+    }
+}
+
+/* Animation for image load */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.center-fit {
+    animation: fadeIn 0.5s ease-in;
+}

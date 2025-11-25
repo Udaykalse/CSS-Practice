@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🖼 Get YouTube Thumbnail</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="mask-icon" href="safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+</head>
+<body>
+    <div class="main fw-light">
+        <header>
+            <h1 class="display-6 lh-1 text-white">🖼 Get YouTube Thumbnail</h1>
+        </header>
+        <hr class="text-white">
+        
+        <div class="input-section">
+            <label for="url" class="form-label small text-white">
+                Enter YouTube video URL (supports .be, shorts, embed, with timestamps and other clutter)
+            </label>
+            <input name="url" type="search" id="url" class="form-control fw-light" 
+                   placeholder="https://www.youtube.com/watch?v=gPKzwAORly8" />
+        </div>
+
+        <div class="buttons">
+            <button class="btn btn-primary fw-light" data-type="default">👁‍🗨 Get 🖼</button>
+            <button class="btn btn-info fw-light" data-type="maxres">👀 Get Max 🖼</button>
+            <button class="btn btn-secondary fw-light" data-type="webp">👁 Get Max webp</button>
+            <button class="btn btn-success fw-light" id="download-btn">⏬ Download</button>
+        </div>
+
+        <div class="image-container">
+            <img decoding="async" class="center-fit" id="img" 
+                 title="Click to zoom in/out" 
+                 src="https://img.youtube.com/vi/gPKzwAORly8/hqdefault.jpg" 
+                 alt="YouTube thumbnail" />
+        </div>
+
+        <footer>
+            <a class="text-decoration-none text-white" href="https://github.com/Udaykalse" target="_blank" rel="noopener noreferrer">
+            @Udaykalse
+            </a>
+        </footer>
+    </div>
+
+    <div id="fullpage" title="Click to zoom in/out"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
