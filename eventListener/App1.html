@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Click button → Change text</title>
+  </head>
+  <body>
+    <p id="msg">Hello</p>
+    <button id="btn">Click Me</button>
+
+    <script>
+      document.getElementById("btn").addEventListener("click", () => {
+        document.getElementById("msg").textContent = "Button is Clicked";
+      });
+    </script>
+  </body>
+</html>

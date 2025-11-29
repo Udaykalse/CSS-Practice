@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Counter with + and – buttons</title>
+  </head>
+  <body>
+    <button id="inc">Plus</button>
+    <br />
+    <br />
+    <br />
+
+    <span id="count">0</span>
+    <br />
+    <br />
+    <br />
+
+    <button id="dec">Minus</button>
+
+    <script>
+      let c = 0;
+      document.getElementById("inc").addEventListener("click", () => {
+        c++;
+        document.getElementById("count").textContent = c;
+      });
+      document.getElementById("dec").addEventListener("click", () => {
+        c--;
+        document.getElementById("count").textContent = c;
+      });
+    </script>
+  </body>
+</html>

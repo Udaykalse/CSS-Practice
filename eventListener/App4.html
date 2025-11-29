@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hover event → show message</title>
+  </head>
+  <body>
+    <p id="hoverText">Hover Over Me</p>
+
+    <script>
+      const t = document.getElementById("hoverText");
+      t.addEventListener("mouseover", () => (t.textContent = "You Hovered!"));
+      t.addEventListener("mouseout", () => (t.textContent = "Hover Over Me"));
+    </script>
+  </body>
+</html>
