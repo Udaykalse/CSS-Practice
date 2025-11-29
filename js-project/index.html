@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2048 Game</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+    <style>
+        * {
+            font-family: 'Poppins', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-[#faf8ef] min-h-screen flex items-center justify-center p-4">
+    <div id="gameContainer" class="hidden w-full max-w-md">
+        <div class="flex justify-between items-center mb-6">
+            <h1 class="text-4xl md:text-5xl font-bold text-[#776e65]">2048</h1>
+            <div class="bg-[#bbada0] rounded-lg px-4 py-2 text-white font-semibold">
+                Score: <span id="score">0</span>
+            </div>
+        </div>
+        
+        <div class="grid grid-cols-4 gap-2 bg-[#bbada0] rounded-lg p-2 aspect-square">
+        </div>
+        
+        <div class="mt-6 text-center text-sm text-[#776e65]">
+            <p>Use arrow keys or swipe to move tiles</p>
+        </div>
+    </div>
+
+    <div id="coverScreen" class="flex flex-col items-center justify-center text-center bg-[#faf8ef] p-8 rounded-lg">
+        <h2 id="overText" class="hidden text-3xl font-bold text-red-600 mb-4">Game Over</h2>
+        <p id="result" class="text-lg text-[#776e65] mb-6"></p>
+        <button id="startButton" class="bg-[#8f7a66] text-white px-8 py-3 rounded-lg font-semibold text-lg hover:bg-[#7f6a56] transition-colors">
+            Start Game
+        </button>
+    </div>
+
+    <script src="./script.js"></script>
+</body>
+</html>
