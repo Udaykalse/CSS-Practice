@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Show modal on button click</title>
+  </head>
+  <body>
+    <button id="open">Open Model</button>
+    <div id="modal" style="display: none">This Is Model</div>
+
+    <script>
+      document.getElementById("open").addEventListener("click", () => {
+        document.getElementById("modal").style.display = "block";
+      });
+    </script>
+  </body>
+</html>

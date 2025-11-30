@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Real-time background color from input</title>
+  </head>
+  <body>
+    <input type="color" id="picker" />
+    <div id="box" style="width: 150px; height: 150px"></div>
+
+    <script>
+      document.getElementById("picker").addEventListener("input", (e) => {
+        document.getElementById("box").style.background = e.target.value;
+      });
+    </script>
+  </body>
+</html>

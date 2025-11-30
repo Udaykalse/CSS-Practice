@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Update Input Value in Real-Time</title>
+  </head>
+  <body>
+    <input type="text" id="inp" />
+    <p id="output"></p>
+
+    <script>
+      document.getElementById("inp").addEventListener("input", (e) => {
+        document.getElementById("output").textContent = e.target.value;
+      });
+    </script>
+  </body>
+</html>

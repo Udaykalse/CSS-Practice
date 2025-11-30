@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Change image on hover</title>
+  </head>
+  <body>
+    <img src="./img1.webp" alt="friend" id="img" style="width: 200px; height: 200px;" />
+    <script>
+      const img = document.getElementById("img");
+      img.addEventListener("mouseout", () => (img.src = "img1.webp"));
+      img.addEventListener("mouseover", () => (img.src = "img2.webp"));
+    </script>
+  </body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form Validation Without HTML Required Attribute</title>
+  </head>
+  <body>
+    <input type="text" id="name" />
+    <button id="submit">Submit</button>
+    <p id="error"></p>
+
+    <script>
+      document.getElementById("submit").addEventListener("click", () => {
+        const v = document.getElementById("name").value;
+
+        document.getElementById("error").textContent =
+          v.trim() === "" ? "Name is Required" : "Submitted";
+      });
+    </script>
+  </body>
+</html>

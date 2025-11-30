@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Highlight Selected List Item</title>
+  </head>
+  <body>
+    <ul id="menu">
+      <li>Home</li>
+      <li>About</li>
+      <li>Contact</li>
+    </ul>
+
+    <script>
+      const itM = document.querySelectorAll("#menu li");
+      itM.forEach((li) => {
+        li.addEventListener("click", () => {
+          itM.forEach((x) => (x.style.background = ""));
+          li.style.background = "Yellow";
+        });
+      });
+    </script>
+  </body>
+</html>

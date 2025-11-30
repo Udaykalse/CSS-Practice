@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Toggle Hide / Show</title>
+  </head>
+  <body>
+    <p id="txt">This is a paragraph</p>
+    <button id="toggelBtn">Hide</button>
+
+    <script>
+      document.getElementById("toggelBtn").addEventListener("click", () => {
+        const p = document.getElementById("txt");
+        p.style.display = p.style.display === "none" ? "block" : "none";
+      });
+    </script>
+  </body>
+</html>

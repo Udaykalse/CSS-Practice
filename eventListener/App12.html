@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Play/Pause audio button</title>
+  </head>
+  <body>
+    <audio src="./m1.mp3" id="audio"></audio>
+    <button id="toggel">Play / Pasue</button>
+
+    <script>
+      document.getElementById("toggel").addEventListener("click", () => {
+        const audio = document.getElementById("audio");
+        audio.paused ? audio.play() : audio.pause();
+      });
+    </script>
+  </body>
+</html>
