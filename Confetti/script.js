@@ -1,4 +1,3 @@
-// Configuration object
 const config = {
     particleCount: 150,
     sizeRange: 8,
@@ -9,14 +8,12 @@ const config = {
     autoInterval: null
 };
 
-// Statistics tracking
 const stats = {
     activeParticles: 0,
     totalClicks: 0,
     totalParticlesCreated: 0
 };
 
-// Color palettes
 const colorPalettes = {
     rainbow: ['#FF5252', '#FF9800', '#FFEB3B', '#4CAF50', '#2196F3', '#9C27B0'],
     pastel: ['#FFB6C1', '#FFDAC1', '#E2F0CB', '#B5EAD7', '#C7CEEA', '#FF9AA2'],
@@ -25,10 +22,8 @@ const colorPalettes = {
     neon: ['#FF00FF', '#00FFFF', '#FFFF00', '#FF0000', '#00FF00']
 };
 
-// Confetti shapes
 const shapes = ['circle', 'square', 'triangle', 'star', 'heart'];
 
-// DOM Elements
 const confettiTypeSelect = document.getElementById('confetti-type');
 const colorSchemeSelect = document.getElementById('color-scheme');
 const particleCountSlider = document.getElementById('particle-count');
@@ -44,7 +39,6 @@ const activeParticlesEl = document.querySelector('.stat-value:first-child');
 const totalClicksEl = document.querySelectorAll('.stat-value')[1];
 const presetButtons = document.querySelectorAll('.preset-btn');
 
-// Preset configurations
 const presets = {
     celebration: {
         type: 'burst',
@@ -72,14 +66,11 @@ const presets = {
     }
 };
 
-// Initialize the application
 function init() {
-    // Set initial values
     updateCountValue();
     updateSizeValue();
     updateStats();
     
-    // Event listeners for controls
     confettiTypeSelect.addEventListener('change', (e) => {
         config.confettiType = e.target.value;
     });
@@ -102,7 +93,6 @@ function init() {
     clearConfettiBtn.addEventListener('click', clearAllConfetti);
     toggleSoundBtn.addEventListener('click', toggleSound);
     
-    // Preset buttons
     presetButtons.forEach(btn => {
         btn.addEventListener('click', () => {
             const preset = presets[btn.dataset.preset];
@@ -110,25 +100,21 @@ function init() {
         });
     });
     
-    // Event listener for clicks in the demo area
     demoArea.addEventListener('click', (e) => {
         stats.totalClicks++;
         updateStats();
         createConfetti(e.clientX, e.clientY);
     });
     
-    // For continuous confetti on mouse hold
     let isMouseDown = false;
     let mouseHoldInterval;
     
     demoArea.addEventListener('mousedown', (e) => {
         isMouseDown = true;
-        // Create initial burst
         stats.totalClicks++;
         updateStats();
         createConfetti(e.clientX, e.clientY, 30);
         
-        // Set up continuous bursts while holding
         mouseHoldInterval = setInterval(() => {
             if (isMouseDown) {
                 createConfetti(e.clientX, e.clientY, 10);
@@ -143,14 +129,12 @@ function init() {
         }
     });
     
-    // Create confetti on drag
     demoArea.addEventListener('mousemove', (e) => {
         if (isMouseDown) {
             createConfetti(e.clientX, e.clientY, 3);
         }
     });
     
-    // Touch support for mobile
     demoArea.addEventListener('touchstart', (e) => {
         e.preventDefault();
         const touch = e.touches[0];
@@ -162,32 +146,27 @@ function init() {
     console.log('Enhanced Confetti Effect Initialized!');
 }
 
-// Update particle count display
 function updateCountValue() {
     countValue.textContent = config.particleCount;
 }
 
-// Update size range display
 function updateSizeValue() {
     const minSize = Math.max(3, Math.floor(config.sizeRange / 3));
     const maxSize = config.sizeRange + 4;
     sizeValue.textContent = `${minSize}-${maxSize}px`;
 }
 
-// Update statistics display
 function updateStats() {
     activeParticlesEl.textContent = stats.activeParticles;
     totalClicksEl.textContent = stats.totalClicks;
 }
 
-// Apply preset configuration
 function applyPreset(preset) {
     config.confettiType = preset.type;
     config.colorScheme = preset.colors;
     config.particleCount = preset.count;
     config.sizeRange = preset.size;
     
-    // Update UI elements
     confettiTypeSelect.value = preset.type;
     colorSchemeSelect.value = preset.colors;
     particleCountSlider.value = preset.count;
@@ -197,22 +176,18 @@ function applyPreset(preset) {
     updateSizeValue();
 }
 
-// Get random color from selected palette
 function getRandomColor() {
     const palette = colorPalettes[config.colorScheme];
     return palette[Math.floor(Math.random() * palette.length)];
 }
 
-// Get random shape
 function getRandomShape() {
     return shapes[Math.floor(Math.random() * shapes.length)];
 }
 
-// Create confetti particles
 function createConfetti(x, y, customCount = null) {
     const count = customCount || config.particleCount;
     
-    // Play sound if enabled
     if (config.soundEnabled) {
         confettiSound.currentTime = 0;
         confettiSound.play().catch(e => console.log("Audio play failed:", e));
@@ -226,12 +201,10 @@ function createConfetti(x, y, customCount = null) {
         const confetti = document.createElement("div");
         confetti.classList.add("confetti");
         
-        // Random size based on config
         const minSize = Math.max(3, Math.floor(config.sizeRange / 3));
         const maxSize = config.sizeRange + 4;
         const size = Math.random() * (maxSize - minSize) + minSize;
         
-        // Set shape and styling
         const shape = getRandomShape();
         confetti.classList.add(shape);
         
@@ -241,11 +214,9 @@ function createConfetti(x, y, customCount = null) {
         confetti.style.top = `${y}px`;
         confetti.style.left = `${x}px`;
         
-        // Random rotation
         const rotation = Math.random() * 720 - 360; // -360 to 360 degrees
         confetti.style.setProperty("--rotation", `${rotation}deg`);
         
-        // Set animation based on confetti type
         let animationName = 'burst';
         let duration = Math.random() * 1.5 + 0.5;
         
@@ -306,16 +277,12 @@ function createConfetti(x, y, customCount = null) {
                 break;
         }
         
-        // Apply animation
         confetti.style.animation = `${animationName} ${duration}s ease-out forwards`;
         
-        // Add slight delay for staggered effect
         confetti.style.animationDelay = `${Math.random() * 0.2}s`;
         
-        // Add to document
         document.body.appendChild(confetti);
         
-        // Clean up after animation completes
         setTimeout(() => {
             if (confetti.parentNode) {
                 confetti.remove();
@@ -326,10 +293,8 @@ function createConfetti(x, y, customCount = null) {
     }
 }
 
-// Toggle auto mode
 function toggleAutoMode() {
     if (config.autoMode) {
-        // Stop auto mode
         clearInterval(config.autoInterval);
         config.autoMode = false;
         autoModeBtn.innerHTML = '<i class="fas fa-play"></i><span>Auto Mode</span>';
@@ -351,7 +316,6 @@ function toggleAutoMode() {
     }
 }
 
-// Clear all confetti
 function clearAllConfetti() {
     const confettiElements = document.querySelectorAll('.confetti');
     confettiElements.forEach(confetti => {
@@ -366,7 +330,6 @@ function clearAllConfetti() {
     });
 }
 
-// Toggle sound
 function toggleSound() {
     config.soundEnabled = !config.soundEnabled;
     if (config.soundEnabled) {

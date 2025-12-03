@@ -1,168 +1,191 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Enhanced Confetti Burst Effects</title>
     <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-</head>
-<body>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
     <div class="container">
-        <div class="app-wrapper">
-            <!-- Left Sidebar - Controls -->
-            <aside class="sidebar">
-                <div class="logo">
-                    <i class="fas fa-sparkles"></i>
-                    <h1>Confetti Studio</h1>
+      <div class="app-wrapper">
+        <aside class="sidebar">
+          <div class="logo">
+            <i class="fas fa-sparkles"></i>
+            <h1>Confetti Studio</h1>
+          </div>
+
+          <div class="controls-panel">
+            <h3><i class="fas fa-sliders-h"></i> Controls</h3>
+
+            <div class="control-group">
+              <label for="confetti-type">
+                <i class="fas fa-shapes"></i>
+                Effect Type
+              </label>
+              <select id="confetti-type">
+                <option value="burst">Burst Explosion</option>
+                <option value="fountain">Fountain Flow</option>
+                <option value="spiral">Spiral Twist</option>
+                <option value="rain">Rainfall</option>
+                <option value="fireworks">Fireworks</option>
+              </select>
+            </div>
+
+            <div class="control-group">
+              <label for="color-scheme">
+                <i class="fas fa-palette"></i>
+                Color Theme
+              </label>
+              <select id="color-scheme">
+                <option value="rainbow">Rainbow</option>
+                <option value="pastel">Pastel</option>
+                <option value="monochrome">Monochrome</option>
+                <option value="holiday">Holiday</option>
+                <option value="neon">Neon</option>
+              </select>
+            </div>
+
+            <div class="control-group">
+              <label for="particle-count">
+                <i class="fas fa-bullseye"></i>
+                Particle Density
+                <span class="value-display" id="count-value">150</span>
+              </label>
+              <input
+                type="range"
+                id="particle-count"
+                min="50"
+                max="500"
+                value="150"
+              />
+              <div class="range-labels">
+                <span>Low</span>
+                <span>High</span>
+              </div>
+            </div>
+
+            <div class="control-group">
+              <label for="size-range">
+                <i class="fas fa-expand-alt"></i>
+                Size Range
+                <span class="value-display" id="size-value">3-12px</span>
+              </label>
+              <input type="range" id="size-range" min="1" max="20" value="8" />
+              <div class="range-labels">
+                <span>Small</span>
+                <span>Large</span>
+              </div>
+            </div>
+
+            <div class="action-buttons">
+              <button id="auto-mode" class="btn-primary">
+                <i class="fas fa-play"></i>
+                <span>Auto Mode</span>
+              </button>
+              <button id="clear-confetti" class="btn-secondary">
+                <i class="fas fa-broom"></i>
+                <span>Clear All</span>
+              </button>
+              <button id="toggle-sound" class="btn-success">
+                <i class="fas fa-volume-up"></i>
+                <span>Sound On</span>
+              </button>
+            </div>
+
+            <div class="stats">
+              <div class="stat-item">
+                <i class="fas fa-clock"></i>
+                <div>
+                  <span class="stat-value">0</span>
+                  <span class="stat-label">Active Particles</span>
                 </div>
-                
-                <div class="controls-panel">
-                    <h3><i class="fas fa-sliders-h"></i> Controls</h3>
-                    
-                    <div class="control-group">
-                        <label for="confetti-type">
-                            <i class="fas fa-shapes"></i>
-                            Effect Type
-                        </label>
-                        <select id="confetti-type">
-                            <option value="burst">Burst Explosion</option>
-                            <option value="fountain">Fountain Flow</option>
-                            <option value="spiral">Spiral Twist</option>
-                            <option value="rain">Rainfall</option>
-                            <option value="fireworks">Fireworks</option>
-                        </select>
-                    </div>
-                    
-                    <div class="control-group">
-                        <label for="color-scheme">
-                            <i class="fas fa-palette"></i>
-                            Color Theme
-                        </label>
-                        <select id="color-scheme">
-                            <option value="rainbow">Rainbow</option>
-                            <option value="pastel">Pastel</option>
-                            <option value="monochrome">Monochrome</option>
-                            <option value="holiday">Holiday</option>
-                            <option value="neon">Neon</option>
-                        </select>
-                    </div>
-                    
-                    <div class="control-group">
-                        <label for="particle-count">
-                            <i class="fas fa-bullseye"></i>
-                            Particle Density
-                            <span class="value-display" id="count-value">150</span>
-                        </label>
-                        <input type="range" id="particle-count" min="50" max="500" value="150">
-                        <div class="range-labels">
-                            <span>Low</span>
-                            <span>High</span>
-                        </div>
-                    </div>
-                    
-                    <div class="control-group">
-                        <label for="size-range">
-                            <i class="fas fa-expand-alt"></i>
-                            Size Range
-                            <span class="value-display" id="size-value">3-12px</span>
-                        </label>
-                        <input type="range" id="size-range" min="1" max="20" value="8">
-                        <div class="range-labels">
-                            <span>Small</span>
-                            <span>Large</span>
-                        </div>
-                    </div>
-                    
-                    <div class="action-buttons">
-                        <button id="auto-mode" class="btn-primary">
-                            <i class="fas fa-play"></i>
-                            <span>Auto Mode</span>
-                        </button>
-                        <button id="clear-confetti" class="btn-secondary">
-                            <i class="fas fa-broom"></i>
-                            <span>Clear All</span>
-                        </button>
-                        <button id="toggle-sound" class="btn-success">
-                            <i class="fas fa-volume-up"></i>
-                            <span>Sound On</span>
-                        </button>
-                    </div>
-                    
-                    <div class="stats">
-                        <div class="stat-item">
-                            <i class="fas fa-clock"></i>
-                            <div>
-                                <span class="stat-value">0</span>
-                                <span class="stat-label">Active Particles</span>
-                            </div>
-                        </div>
-                        <div class="stat-item">
-                            <i class="fas fa-mouse-pointer"></i>
-                            <div>
-                                <span class="stat-value">0</span>
-                                <span class="stat-label">Total Clicks</span>
-                            </div>
-                        </div>
-                    </div>
+              </div>
+              <div class="stat-item">
+                <i class="fas fa-mouse-pointer"></i>
+                <div>
+                  <span class="stat-value">0</span>
+                  <span class="stat-label">Total Clicks</span>
                 </div>
-                
-                <div class="instructions">
-                    <h4><i class="fas fa-lightbulb"></i> Quick Tips</h4>
-                    <ul>
-                        <li>Click anywhere to create confetti</li>
-                        <li>Hold click for continuous bursts</li>
-                        <li>Try different effect combinations</li>
-                        <li>Drag to create particle trails</li>
-                    </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="instructions">
+            <h4><i class="fas fa-lightbulb"></i> Quick Tips</h4>
+            <ul>
+              <li>Click anywhere to create confetti</li>
+              <li>Hold click for continuous bursts</li>
+              <li>Try different effect combinations</li>
+              <li>Drag to create particle trails</li>
+            </ul>
+          </div>
+        </aside>
+
+        <main class="main-content">
+          <div class="demo-header">
+            <h2><i class="fas fa-magic"></i> Interactive Confetti Canvas</h2>
+            <p class="subtitle">
+              Click, drag, or enable auto mode to create stunning effects
+            </p>
+          </div>
+
+          <div class="canvas-container">
+            <div class="demo-area" id="demo-area">
+              <div class="canvas-overlay">
+                <div class="click-hint">
+                  <div class="hint-icon">
+                    <i class="fas fa-hand-pointer"></i>
+                  </div>
+                  <h3>Click Anywhere</h3>
+                  <p>Start creating beautiful confetti effects</p>
+                  <div class="hint-tip">
+                    <i class="fas fa-info-circle"></i>
+                    Try holding and dragging for particle trails
+                  </div>
                 </div>
-            </aside>
-            
-            <!-- Main Content Area -->
-            <main class="main-content">
-                <div class="demo-header">
-                    <h2><i class="fas fa-magic"></i> Interactive Confetti Canvas</h2>
-                    <p class="subtitle">Click, drag, or enable auto mode to create stunning effects</p>
+              </div>
+            </div>
+
+            <div class="canvas-footer">
+              <div class="quick-presets">
+                <h4><i class="fas fa-bolt"></i> Quick Presets</h4>
+                <div class="preset-buttons">
+                  <button class="preset-btn" data-preset="celebration">
+                    Celebration
+                  </button>
+                  <button class="preset-btn" data-preset="fireworks">
+                    Fireworks Show
+                  </button>
+                  <button class="preset-btn" data-preset="rain">
+                    Gentle Rain
+                  </button>
+                  <button class="preset-btn" data-preset="spiral">
+                    Spiral Twist
+                  </button>
                 </div>
-                
-                <div class="canvas-container">
-                    <div class="demo-area" id="demo-area">
-                        <div class="canvas-overlay">
-                            <div class="click-hint">
-                                <div class="hint-icon">
-                                    <i class="fas fa-hand-pointer"></i>
-                                </div>
-                                <h3>Click Anywhere</h3>
-                                <p>Start creating beautiful confetti effects</p>
-                                <div class="hint-tip">
-                                    <i class="fas fa-info-circle"></i>
-                                    Try holding and dragging for particle trails
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="canvas-footer">
-                        <div class="quick-presets">
-                            <h4><i class="fas fa-bolt"></i> Quick Presets</h4>
-                            <div class="preset-buttons">
-                                <button class="preset-btn" data-preset="celebration">Celebration</button>
-                                <button class="preset-btn" data-preset="fireworks">Fireworks Show</button>
-                                <button class="preset-btn" data-preset="rain">Gentle Rain</button>
-                                <button class="preset-btn" data-preset="spiral">Spiral Twist</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </main>
-        </div>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
     </div>
-    
+
     <audio id="confetti-sound" preload="auto">
-        <source src="https://assets.mixkit.co/sfx/preview/mixkit-happy-crowd-laugh-464.mp3" type="audio/mpeg">
+      <source
+        src="https://assets.mixkit.co/sfx/preview/mixkit-happy-crowd-laugh-464.mp3"
+        type="audio/mpeg"
+      />
     </audio>
-    
+
     <script src="script.js"></script>
-</body>
+  </body>
 </html>
